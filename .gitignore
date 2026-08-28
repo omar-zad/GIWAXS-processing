@@ -1,0 +1,22 @@
+# Jupyter and Python working files
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Raw beamline and detector data
+*.hdf5
+*.h5
+*.nxs
+
+# Generated reciprocal-space and analysis outputs
+Reproducible_Processing/
+**/Reciprocal_Space/
+**/Individual_1D/
+*.npz
+*.tif
+*.tiff
+
+# Calibration files should only be published when permission is confirmed
+*.edf
+*.poni

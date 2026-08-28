@@ -1,0 +1,25 @@
+name: i07-data-processing
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy=1.26
+  - scipy
+  - pandas
+  - matplotlib
+  - jupyterlab
+  - ipykernel
+  - h5py
+  - hdf5plugin
+  - fabio
+  - pyfai
+  - pygix
+  - silx
+  - nexusformat
+  - scisoftpy
+  - tifffile
+  - pillow
+  - pyyaml
+  - qtpy
+  - pyqt
+  - pip
