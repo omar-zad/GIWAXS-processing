@@ -6,7 +6,7 @@ The main workflow is [`GIWAXS_reproducible_processing.ipynb`](GIWAXS_reproducibl
 
 ## Acknowledgement and provenance
 
-This workflow is adapted from `i07_data_processing_clean.ipynb`, supplied by Dr Daniel Toolan. The original notebook provided the core I07 processing framework, including the Python/pyFAI/pyGIX setup, PONI and detector-mask loading, Pilatus HDF5 access, reciprocal-space transformation and frame-by-frame processing pattern. This contribution is gratefully acknowledged.
+This workflow is adapted from `i07_data_processing_clean.ipynb` and uses the accompanying `environment.yml`, both supplied by Dr Daniel Toolan. These original materials provided the core I07 processing framework and software environment, including the Python/pyFAI/pyGIX setup, PONI and detector-mask loading, Pilatus HDF5 access, reciprocal-space transformation and frame-by-frame processing pattern. This contribution is gratefully acknowledged.
 
 The present project reorganised and extended that framework. Project-specific additions include:
 
