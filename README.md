@@ -6,7 +6,7 @@ The main workflow is [`GIWAXS_reproducible_processing.ipynb`](GIWAXS_reproducibl
 
 ## Acknowledgement and provenance
 
-This workflow is adapted from `i07_data_processing_clean.ipynb` and uses the accompanying `environment.yml`, both supplied by Dr Daniel Toolan. These original materials provided the core I07 processing framework and software environment, including the Python/pyFAI/pyGIX setup, PONI and detector-mask loading, Pilatus HDF5 access, reciprocal-space transformation and frame-by-frame processing pattern. This contribution is gratefully acknowledged.
+This workflow is adapted from `i07_data_processing_clean.ipynb`, supplied by Dr Daniel Toolan. The accompanying `environment.yml` was also supplied by Dr Daniel Toolan and has subsequently been extended for this project, including the addition of `openpyxl` for Excel metadata export. These original materials provided the core I07 processing framework and software environment, including the Python/pyFAI/pyGIX setup, PONI and detector-mask loading, Pilatus HDF5 access, reciprocal-space transformation and frame-by-frame processing pattern. This contribution is gratefully acknowledged.
 
 The present project reorganised and extended that framework. Project-specific additions include:
 
@@ -18,6 +18,7 @@ The present project reorganised and extended that framework. Project-specific ad
 - consistent scan-level colour scales and black masked regions;
 - representative time-labelled line cuts and paired IP/OOP plots;
 - Q-versus-time maps using actual NeXus per-frame timestamps;
+- CSV/Excel frame–time–temperature tables and temperature trajectory plots;
 - memory-safe multi-scan processing and machine-readable processing manifests.
 
 The reorganisation and project-specific implementation were developed with assistance from OpenAI Codex.
@@ -66,5 +67,8 @@ Each scan receives a deterministic output folder containing:
 - representative radial line plots;
 - paired IP/OOP plots;
 - FULL/FR, IP and OOP Q-versus-elapsed-time maps;
-- frame/time/temperature metadata;
+- a `Metadata` folder containing frame/time/temperature CSV and Excel tables;
+- temperature-versus-time, temperature-versus-frame and dual-axis temperature plots;
 - a JSON record of source files, calibration, settings and package versions.
+
+Temperature values are taken directly from `entry/instrument/temp3/value`; they are not smoothed or interpolated. If a scan has no finite temperature values, its metadata tables are still written and only the three temperature plots are skipped.

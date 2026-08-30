@@ -6,6 +6,7 @@ dependencies:
   - numpy=1.26
   - scipy
   - pandas
+  - openpyxl
   - matplotlib
   - jupyterlab
   - ipykernel
