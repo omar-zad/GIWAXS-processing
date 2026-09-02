@@ -18,6 +18,8 @@ The present project reorganised and extended that framework. Project-specific ad
 - consistent scan-level colour scales and black masked regions;
 - representative time-labelled line cuts and paired IP/OOP plots;
 - Q-versus-time maps using actual NeXus per-frame timestamps;
+- automatic linear-intensity Q-versus-time CSV matrices for FULL/FR, IP and OOP;
+- automatic per-frame reciprocal-space CSV matrices with masked regions retained as missing values;
 - CSV/Excel frame–time–temperature tables and temperature trajectory plots;
 - memory-safe multi-scan processing and machine-readable processing manifests.
 
@@ -69,6 +71,14 @@ Each scan receives a deterministic output folder containing:
 - FULL/FR, IP and OOP Q-versus-elapsed-time maps;
 - a `Metadata` folder containing frame/time/temperature CSV and Excel tables;
 - temperature-versus-time, temperature-versus-frame and dual-axis temperature plots;
+- a `Numeric_Exports/Q_Time` folder containing raw linear FULL/FR, IP and OOP
+  matrices with Q rows and actual elapsed-time columns;
+- a `Numeric_Exports/Reciprocal_Space` folder containing linear reciprocal-space
+  matrices with Qz rows, Qr columns and blank cells for masked or uncovered bins;
 - a JSON record of source files, calibration, settings and package versions.
 
 Temperature values are taken directly from `entry/instrument/temp3/value`; they are not smoothed or interpolated. If a scan has no finite temperature values, its metadata tables are still written and only the three temperature plots are skipped.
+
+The numerical CSV exports are generated for every scan listed in `SCAN_NUMBERS` during the normal processing run; no scan-specific export cells are required. Q-time values are azimuthal mean intensities on a linear scale. Reciprocal-space values are also linear, after the configured geometry transformation, detector mask and corrections. Neither export contains the `log10` display transformation.
+
+Every-frame reciprocal-space CSV export is intentionally controlled by `EXPORT_RECIPROCAL_CSV` in the settings cell because text matrices are large. With the eight kinetic scans currently listed in the notebook, these files require approximately 3.1 GB in addition to the plotted images and other outputs.
